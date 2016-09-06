@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Simple Weather</string>
+    <string name="loading">Loading…</string>
+
+    <string name="temperature">Temperature</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind_speed">Wind speed</string>
+
+    <string name="f_temperature">%d\u2103</string>
+    <string name="f_pressure">%d bar</string>
+    <string name="f_humidity">%d%%</string>
+    <string name="f_wind_speed">%d m/s</string>
+
+    <string name="weather_error">Error loading weather :( \n\n Retry</string>
+    <string name="empty_list">Failed to load weather data.\nCheck your network settings.</string>
+
+</resources>
