@@ -6,11 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ru.gdgkazan.simpleweather.R;
-import ru.gdgkazan.simpleweather.model.City;
+import ru.gdgkazan.simpleweather.data.model.City;
 
 /**
  * @author Artur Vasilov
@@ -30,7 +29,7 @@ public class CitiesAdapter extends RecyclerView.Adapter<CityHolder> {
     };
 
     public CitiesAdapter(@NonNull List<City> cities, @NonNull OnItemClick onItemClick) {
-        mCities = new ArrayList<>(cities);
+        mCities = cities;
         mOnItemClick = onItemClick;
     }
 
@@ -38,7 +37,6 @@ public class CitiesAdapter extends RecyclerView.Adapter<CityHolder> {
         mCities.clear();
         mCities.addAll(cities);
         notifyDataSetChanged();
-        notifyItemChanged(1);
     }
 
     @Override

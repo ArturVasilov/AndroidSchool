@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="initial_cities">
+        <item>Kazan</item>
+        <item>Moscow</item>
+        <item>London</item>
+        <item>Washington</item>
+        <item>Berlin</item>
+    </string-array>
+
+</resources>

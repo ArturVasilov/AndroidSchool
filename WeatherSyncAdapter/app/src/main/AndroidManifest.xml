@@ -5,18 +5,26 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".WeatherApp"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screen.loader.StubLoaderActivity">
+
+        <activity android:name=".screen.weather.WeatherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".data.sqlite.WeatherContentProvider"
+            android:authorities="ru.gdgkazan.simpleweather"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
