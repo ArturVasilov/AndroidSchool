@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_bar_height">400dp</dimen>
+    <dimen name="title_textsize">28sp</dimen>
+    <dimen name="description_textsize">16sp</dimen>
+    <dimen name="info_textsize">22sp</dimen>
+</resources>
