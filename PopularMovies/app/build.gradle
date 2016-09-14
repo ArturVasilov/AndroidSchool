@@ -56,4 +56,6 @@ dependencies {
 
     compile "com.squareup.picasso:picasso:$picassoVersion"
     compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoDownloaderVersion"
+
+    compile "com.github.orhanobut:hawk:$hawkVersion"
 }

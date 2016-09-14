@@ -26,7 +26,27 @@ public class LoadingDialog extends DialogFragment {
 
     @NonNull
     public static LoadingView view(@NonNull FragmentManager fm) {
-        return new LoadingDialogView(fm);
+        return new LoadingView() {
+
+            private final AtomicBoolean mWaitForHide = new AtomicBoolean();
+
+            @Override
+            public void showLoadingIndicator() {
+                if (mWaitForHide.compareAndSet(false, true)) {
+                    if (fm.findFragmentByTag(LoadingDialog.class.getName()) == null) {
+                        LoadingDialog dialog = new LoadingDialog();
+                        dialog.show(fm, LoadingDialog.class.getName());
+                    }
+                }
+            }
+
+            @Override
+            public void hideLoadingIndicator() {
+                if (mWaitForHide.compareAndSet(true, false)) {
+                    HANDLER.post(new HideTask(fm));
+                }
+            }
+        };
     }
 
     @NonNull
@@ -47,36 +67,6 @@ public class LoadingDialog extends DialogFragment {
         return new AlertDialog.Builder(getActivity())
                 .setView(View.inflate(getActivity(), R.layout.dialog_loading, null))
                 .create();
-    }
-
-    private static class LoadingDialogView implements LoadingView {
-
-        private final FragmentManager mFm;
-
-        private final AtomicBoolean mWaitForHide;
-
-        private LoadingDialogView(@NonNull FragmentManager fm) {
-            mFm = fm;
-            boolean shown = fm.findFragmentByTag(LoadingDialog.class.getName()) != null;
-            mWaitForHide = new AtomicBoolean(shown);
-        }
-
-        @Override
-        public void showLoadingIndicator() {
-            if (mWaitForHide.compareAndSet(false, true)) {
-                if (mFm.findFragmentByTag(LoadingDialog.class.getName()) == null) {
-                    DialogFragment dialog = new LoadingDialog();
-                    dialog.show(mFm, LoadingDialog.class.getName());
-                }
-            }
-        }
-
-        @Override
-        public void hideLoadingIndicator() {
-            if (mWaitForHide.compareAndSet(true, false)) {
-                HANDLER.post(new HideTask(mFm));
-            }
-        }
     }
 
     private static class HideTask implements Runnable {

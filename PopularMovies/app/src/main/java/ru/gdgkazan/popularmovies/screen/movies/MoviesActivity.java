@@ -70,12 +70,9 @@ public class MoviesActivity extends AppCompatActivity implements MoviesAdapter.O
                     return Observable.just(movies);
                 })
                 .onErrorResumeNext(throwable -> {
-                    RealmResults<Movie> results = Realm.getDefaultInstance().where(Movie.class).findAll();
-                    return Observable.from(results)
-                            .map(realmMovie -> new Movie(realmMovie.getId(), realmMovie.getPosterPath(),
-                                    realmMovie.getOverview(), realmMovie.getPosterPath(),
-                                    realmMovie.getReleasedDate(), realmMovie.getVoteAverage()))
-                            .toList();
+                    Realm realm = Realm.getDefaultInstance();
+                    RealmResults<Movie> results = realm.where(Movie.class).findAll();
+                    return Observable.just(realm.copyFromRealm(results));
                 })
                 .doOnSubscribe(loadingView::showLoadingIndicator)
                 .doAfterTerminate(loadingView::hideLoadingIndicator)
