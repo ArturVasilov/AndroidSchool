@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">Popular Movies</string>
+    <string name="loading">Loading…</string>
+    <string name="empty_movies">No movies :(</string>
+    <string name="movie_details">Movie details</string>
+    <string name="rating">Rating \u2014 %1$s/%2$s</string>
+    <string name="movie_title">%1$s \u2014 %2$s</string>
+
+</resources>
