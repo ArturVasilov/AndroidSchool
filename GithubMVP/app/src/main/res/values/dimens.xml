@@ -1,0 +1,35 @@
+<resources>
+
+    <dimen name="margin_xsmall">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xlarge">32dp</dimen>
+    <dimen name="margin_56">56dp</dimen>
+    <dimen name="margin_96">96dp</dimen>
+
+    <dimen name="padding_xsmall">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="padding_xlarge">32dp</dimen>
+
+    <dimen name="text.11">11sp</dimen>
+    <dimen name="text.12">12sp</dimen>
+    <dimen name="text.13">13sp</dimen>
+    <dimen name="text.14">14sp</dimen>
+    <dimen name="text.15">15sp</dimen>
+    <dimen name="text.16">16sp</dimen>
+    <dimen name="text.17">17sp</dimen>
+    <dimen name="text.18">18sp</dimen>
+    <dimen name="text.20">20sp</dimen>
+    <dimen name="text.22">22sp</dimen>
+    <dimen name="text.24">24sp</dimen>
+
+</resources>
