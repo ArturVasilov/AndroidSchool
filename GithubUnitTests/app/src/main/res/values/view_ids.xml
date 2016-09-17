@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- general items -->
+    <item name="content_frame" type="id"/>
+    <item name="toolbar" type="id"/>
+    <item name="recyclerView" type="id"/>
+    <item name="empty" type="id"/>
+
+    <!-- login items -->
+    <item name="loginInputLayout" type="id"/>
+    <item name="loginEdit" type="id"/>
+    <item name="passwordInputLayout" type="id"/>
+    <item name="passwordEdit" type="id"/>
+    <item name="logInButton" type="id"/>
+
+    <!-- repositories items -->
+    <item name="repositoryName" type="id"/>
+    <item name="repositoryLanguage" type="id"/>
+</resources>
