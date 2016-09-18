@@ -31,11 +31,9 @@ public class DefaultGithubRepository implements GithubRepository {
                     return Observable.just(repositories);
                 })
                 .onErrorResumeNext(throwable -> {
-                    RealmResults<Repository> repositories = Realm.getDefaultInstance().where(Repository.class).findAll();
-                    return Observable.from(repositories)
-                            .map(repository -> new Repository(repository.getName(), repository.getDescription(), repository.getLanguage(),
-                                    repository.getStarsCount(), repository.getForksCount(), repository.getWatchersCount()))
-                            .toList();
+                    Realm realm = Realm.getDefaultInstance();
+                    RealmResults<Repository> repositories = realm.where(Repository.class).findAll();
+                    return Observable.just(realm.copyFromRealm(repositories));
                 })
                 .compose(RxSchedulers.async());
     }
