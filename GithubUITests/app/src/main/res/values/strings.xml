@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Github client</string>
+
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="error">Error</string>
+    <string name="empty_repositories">Your repositories list is empty</string>
+    <string name="empty_commits">No commits for the repository</string>
+
+    <string name="benefit_work_together">Work together on one project: review code, create pull requests and collaborate!</string>
+    <string name="benefit_code_history">Easy to find code history and changes in code</string>
+    <string name="benefit_publish_source">On Github your code will be available to everyone and everyone can help you improve it</string>
+
+    <string name="next_uppercase">NEXT</string>
+    <string name="finish_uppercase">FINISH</string>
+
+    <string name="loading">Loading…</string>
+</resources>
