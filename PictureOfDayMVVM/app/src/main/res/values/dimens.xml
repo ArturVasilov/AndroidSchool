@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+
+    <dimen name="title_textsize">22sp</dimen>
+    <dimen name="description_textsize">15sp</dimen>
+
+    <dimen name="app_bar_height">320dp</dimen>
+    <dimen name="progress_bar_size">48dp</dimen>
+</resources>

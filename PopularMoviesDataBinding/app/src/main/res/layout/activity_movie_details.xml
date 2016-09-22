@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="arturvasilov.udacity.nanodegree.popularmoviesdatabinding.databinding.viewmodel.MovieDetailsViewModel"/>
+
+        <variable
+            name="movie"
+            type="arturvasilov.udacity.nanodegree.popularmoviesdatabinding.model.content.Movie"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="arturvasilov.udacity.nanodegree.popularmoviesdatabinding.activity.MovieDetailsActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleColor="@{model.expandedTitleColor}"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="@string/movie_details">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/app_bar_height"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:imageWidth="@{model.imageWidth}"
+                    app:layout_collapseMode="parallax"
+                    app:posterPath="@{movie.posterPath}"
+                    tools:ignore="ContentDescription"/>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:text="@{@string/movie_title(movie.title, model.year)}"
+                    android:textSize="@dimen/title_textsize"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:text="@{movie.overview}"
+                    android:textSize="@dimen/description_textsize"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_margin="@dimen/text_margin"
+                        android:gravity="center"
+                        android:text="@{@string/rating(model.voteAverage, model.voteMax)}"
+                        android:textSize="@dimen/info_textsize"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="@dimen/fab_margin"
+                        android:contentDescription="@string/favourite_button"
+                        android:minHeight="@dimen/star_size"
+                        android:minWidth="@dimen/star_size"
+                        android:onClick="@{model.onFavouriteButtonClick}"
+                        android:padding="@dimen/margin_small"
+                        android:src="@{model.favouriteImage}"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{model.loading ? View.GONE : View.VISIBLE}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/text_margin"
+                            android:text="@string/reviews_title"
+                            android:textSize="@dimen/info_textsize"
+                            android:visibility="@{model.reviewsEnabled ? View.VISIBLE : View.GONE}"/>
+
+                        <arturvasilov.udacity.nanodegree.popularmoviesdatabinding.widget.EmptyRecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="@{model.reviewsEnabled ? View.VISIBLE : View.GONE}"
+                            app:adapter="@{model.reviewsAdapter}"
+                            app:items="@{model.reviews}"
+                            app:layoutManager="@{model.reviewsLayoutManager}"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/text_margin"
+                            android:text="@string/trailers_title"
+                            android:textSize="@dimen/info_textsize"
+                            android:visibility="@{model.trailersEnabled ? View.VISIBLE : View.GONE}"/>
+
+                        <arturvasilov.udacity.nanodegree.popularmoviesdatabinding.widget.EmptyRecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="@{model.trailersEnabled ? View.VISIBLE : View.GONE}"
+                            app:adapter="@{model.trailersAdapter}"
+                            app:items="@{model.trailers}"
+                            app:layoutManager="@{model.trailersLayoutManager}"
+                            app:onItemClick="@{model::onTrailerClick}"/>
+
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:layout_width="@dimen/progress_bar_size"
+                        android:layout_height="@dimen/progress_bar_size"
+                        android:layout_gravity="center"
+                        android:visibility="@{model.loading ? View.VISIBLE : View.GONE}"/>
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Picture Of Day</string>
+    <string name="age_format">Age: %d</string>
+    <string name="for_adults">Adult text</string>
+</resources>

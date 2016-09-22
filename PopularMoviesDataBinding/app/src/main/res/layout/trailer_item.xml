@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="trailer"
+            type="arturvasilov.udacity.nanodegree.popularmoviesdatabinding.model.content.Video"/>
+    </data>
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="@dimen/margin_large"
+              android:background="?attr/selectableItemBackground"
+              android:drawableLeft="@android:drawable/ic_media_play"
+              android:drawablePadding="@dimen/margin_large"
+              android:gravity="center_vertical|left"
+              android:paddingBottom="@dimen/margin_small"
+              android:paddingTop="@dimen/margin_small"
+              android:text="@{trailer.name}"
+              android:textSize="@dimen/description_textsize"
+              tools:ignore="RtlHardcoded"/>
+</layout>

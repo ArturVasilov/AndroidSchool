@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="review"
+            type="arturvasilov.udacity.nanodegree.popularmoviesdatabinding.model.content.Review"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  android:paddingLeft="@dimen/margin_large"
+                  android:paddingRight="@dimen/margin_large">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{review.author}"
+            android:textStyle="bold"
+            android:textSize="@dimen/description_textsize"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:autoLink="web"
+            android:text="@{review.content}"
+            android:textColorLink="@android:color/holo_blue_dark"
+            android:textSize="@dimen/description_textsize"/>
+
+    </LinearLayout>
+
+</layout>

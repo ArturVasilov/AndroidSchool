@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="arturvasilov.udacity.nanodegree.popularmoviesdatabinding.databinding.viewmodel.MoviesViewModel"/>
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".activity.MoviesActivity">
+
+        <include layout="@layout/toolbar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize">
+
+            <TextView
+                android:id="@+id/empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/empty_movies"
+                android:textColor="@color/error_text_color"
+                android:textSize="@dimen/middle_text"/>
+
+            <arturvasilov.udacity.nanodegree.popularmoviesdatabinding.widget.EmptyRecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="@{model.layoutManager}"
+                app:empty="@{empty}"
+                app:adapter="@{model.adapter}"
+                app:onItemClick="@{model::onItemClick}"
+                app:items="@{model.movies}"/>
+
+            <arturvasilov.udacity.nanodegree.popularmoviesdatabinding.widget.RefreshingDialogView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:refreshing="@{model.refreshing}"
+                app:text="@string/movies_progress"/>
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
