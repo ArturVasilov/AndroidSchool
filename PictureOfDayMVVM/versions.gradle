@@ -12,7 +12,4 @@ ext {
     mockitoVersion = '1.10.19'
     powerMockVersion = '1.6.5'
     robolectricVersion = '3.1.2'
-
-    runnerVersion = '0.5'
-    espressoVersion = '2.2.2'
 }

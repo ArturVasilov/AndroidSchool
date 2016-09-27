@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".screen.pictures.PicturesActivity">
+        <activity android:name=".screen.day.DayPictureActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".screen.day.DayPictureActivity"/>
+        <!-- TODO : set this Activity as launcher Activity -->
+        <activity android:name=".screen.pictures.PicturesActivity"/>
 
     </application>
 

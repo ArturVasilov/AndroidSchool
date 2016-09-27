@@ -37,11 +37,12 @@
             <arturvasilov.udacity.nanodegree.popularmoviesdatabinding.widget.EmptyRecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layoutManager="@{model.layoutManager}"
-                app:empty="@{empty}"
                 app:adapter="@{model.adapter}"
-                app:onItemClick="@{model::onItemClick}"
-                app:items="@{model.movies}"/>
+                app:empty="@{empty}"
+                app:items="@{model.movies}"
+                app:layoutManager="@{model.layoutManager}"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:onItemClick="@{model::onItemClick}"/>
 
             <arturvasilov.udacity.nanodegree.popularmoviesdatabinding.widget.RefreshingDialogView
                 android:layout_width="0dp"
