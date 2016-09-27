@@ -13,8 +13,9 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/text_margin"
-        android:paddingLeft="@dimen/text_margin"
-        android:paddingRight="@dimen/text_margin"/>
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_middle"
+        android:paddingLeft="@dimen/margin_middle"
+        android:paddingRight="@dimen/margin_middle"/>
 
 </android.support.v4.widget.NestedScrollView>

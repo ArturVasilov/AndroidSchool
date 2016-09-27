@@ -1,14 +1,14 @@
 ext {
-    supportVersion = '24.2.0'
+    supportVersion = '24.2.1'
     okhttpVersion = '3.4.1'
     retrofitVersion = '2.1.0'
     rxandroidVersion = '1.2.1'
-    rxjavaVersion = '1.1.9'
+    rxjavaVersion = '1.1.10'
     butterKnifeVersion = '8.3.0'
     hawkVersion = '1.23'
 
     junitVersion = '4.12'
-    mockitoVersion = '2.0.111-beta'
+    mockitoVersion = '1.10.19'
 
     runnerVersion = '0.5'
     espressoVersion = '2.2.2'
