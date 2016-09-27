@@ -28,7 +28,9 @@ public class DataModule {
 
     @Provides
     @Singleton
-    GithubRepository provideGithubRepository(@NonNull GithubService githubService, @NonNull KeyValueStorage keyValueStorage) {
+    GithubRepository provideGithubRepository(
+            @NonNull GithubService githubService,
+            @NonNull KeyValueStorage keyValueStorage) {
         return new DefaultGithubRepository(githubService, keyValueStorage);
     }
 

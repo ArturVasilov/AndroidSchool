@@ -8,6 +8,7 @@ import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
+import ru.gdgkazan.githubmvp.AppDelegate;
 
 /**
  * @author Artur Vasilov
@@ -17,8 +18,7 @@ public final class ApiKeyInterceptor implements Interceptor {
     private final String mToken;
 
     private ApiKeyInterceptor() {
-        mToken = "";
-        //TODO
+        mToken = AppDelegate.getAppComponent().keyValueStorage().getToken();
     }
 
     @NonNull

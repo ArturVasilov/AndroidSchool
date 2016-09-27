@@ -3,6 +3,7 @@ package ru.gdgkazan.githubmvp.di;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import ru.gdgkazan.githubmvp.repository.KeyValueStorage;
 import ru.gdgkazan.githubmvp.screen.auth.AuthActivity;
 import ru.gdgkazan.githubmvp.screen.repositories.RepositoriesActivity;
 import ru.gdgkazan.githubmvp.screen.walkthrough.WalkthroughActivity;
@@ -19,5 +20,4 @@ public interface AppComponent {
     void injectRepositoriesActivity(RepositoriesActivity repositoriesActivity);
 
     void injectWalkthroughActivity(WalkthroughActivity walkthroughActivity);
-
 }
