@@ -63,9 +63,6 @@ dependencies {
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
     apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
-    compile "com.squareup.picasso:picasso:$picassoVersion"
-    compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoDownloaderVersion"
-
     testCompile "junit:junit:$junitVersion"
     testCompile "org.mockito:mockito-core:$mockitoVersion"
     testCompile "org.powermock:powermock-api-mockito:$powerMockVersion"
@@ -74,17 +71,4 @@ dependencies {
         exclude group: 'commons-logging', module: 'commons-logging'
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-
-    androidTestCompile "com.android.support:support-v4:$supportVersion"
-    androidTestCompile "com.android.support:support-v13:$supportVersion"
-    androidTestCompile "com.android.support:appcompat-v7:$supportVersion"
-    androidTestCompile "com.android.support:design:$supportVersion"
-    androidTestCompile "com.android.support:recyclerview-v7:$supportVersion"
-
-    androidTestCompile "com.android.support.test:runner:$runnerVersion"
-    androidTestCompile "com.android.support.test:rules:$runnerVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-intents:$espressoVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-contrib:$espressoVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
 }
