@@ -28,6 +28,7 @@ public final class RetrofitCallback {
             @Override
             public void onFailure(Call<T> call, Throwable t) {
                 onError.call(t);
+                //in fact it breaks Rx contract a little bit but it's OK
                 onComplete.call();
             }
         });
