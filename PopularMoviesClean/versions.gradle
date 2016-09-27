@@ -8,11 +8,4 @@ ext {
     butterKnifeVersion = '8.3.0'
     picassoVersion = '2.5.2'
     picassoDownloaderVersion = '1.0.2'
-    hawkVersion = '1.23'
-
-    junitVersion = '4.12'
-    mockitoVersion = '2.0.111-beta'
-
-    runnerVersion = '0.5'
-    espressoVersion = '2.2.2'
 }
