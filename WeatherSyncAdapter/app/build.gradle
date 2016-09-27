@@ -16,6 +16,7 @@ android {
         buildConfigField "String", "API_ENDPOINT", '"http://api.openweathermap.org/"'
         buildConfigField "String", "API_KEY", '"bc0ffae33833bd4d0214451ff2c0d4be"'
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -51,6 +52,4 @@ dependencies {
 
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
     apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
-
-    compile "com.github.orhanobut:hawk:$hawkVersion"
 }
