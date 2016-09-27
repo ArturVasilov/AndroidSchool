@@ -6,7 +6,7 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-import ru.arturvasilov.rxloader.RxSchedulers;
+import ru.arturvasilov.rxloader.RxUtils;
 import ru.gdgkazan.githubmvp.api.ApiFactory;
 import ru.gdgkazan.githubmvp.content.Authorization;
 import ru.gdgkazan.githubmvp.content.Repository;
@@ -35,7 +35,7 @@ public class DefaultGithubRepository implements GithubRepository {
                     RealmResults<Repository> repositories = realm.where(Repository.class).findAll();
                     return Observable.just(realm.copyFromRealm(repositories));
                 })
-                .compose(RxSchedulers.async());
+                .compose(RxUtils.async());
     }
 
     @NonNull
@@ -51,6 +51,6 @@ public class DefaultGithubRepository implements GithubRepository {
                     return Observable.just(authorization);
                 })
                 .doOnError(throwable -> RepositoryProvider.provideKeyValueStorage().clear())
-                .compose(RxSchedulers.async());
+                .compose(RxUtils.async());
     }
 }
