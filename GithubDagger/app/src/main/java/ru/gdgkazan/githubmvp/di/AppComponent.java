@@ -20,4 +20,6 @@ public interface AppComponent {
     void injectRepositoriesActivity(RepositoriesActivity repositoriesActivity);
 
     void injectWalkthroughActivity(WalkthroughActivity walkthroughActivity);
+
+    KeyValueStorage keyValueStorage();
 }

@@ -9,16 +9,17 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 import ru.gdgkazan.githubmvp.AppDelegate;
+import ru.gdgkazan.githubmvp.repository.KeyValueStorage;
 
 /**
  * @author Artur Vasilov
  */
 public final class ApiKeyInterceptor implements Interceptor {
 
-    private final String mToken;
+    private final KeyValueStorage mKeyValueStorage;
 
     private ApiKeyInterceptor() {
-        mToken = AppDelegate.getAppComponent().keyValueStorage().getToken();
+        mKeyValueStorage = AppDelegate.getAppComponent().keyValueStorage();
     }
 
     @NonNull
@@ -28,11 +29,12 @@ public final class ApiKeyInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        if (TextUtils.isEmpty(mToken)) {
+        String token = mKeyValueStorage.getToken();
+        if (TextUtils.isEmpty(token)) {
             return chain.proceed(chain.request());
         }
         Request request = chain.request().newBuilder()
-                .addHeader("Authorization", String.format("%s %s", "token", mToken))
+                .addHeader("Authorization", String.format("%s %s", "token", token))
                 .build();
         return chain.proceed(request);
     }

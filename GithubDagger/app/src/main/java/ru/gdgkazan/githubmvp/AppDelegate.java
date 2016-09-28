@@ -19,6 +19,14 @@ import ru.gdgkazan.githubmvp.di.DataModule;
  */
 public class AppDelegate extends Application {
 
+    /**
+     * TODO : task
+     *
+     * Create modules and subcomponents for each screen
+     * Inject Presenters for each screen
+     * Use test modules to test your app
+     */
+
     private static AppComponent sAppComponent;
 
     @Override
