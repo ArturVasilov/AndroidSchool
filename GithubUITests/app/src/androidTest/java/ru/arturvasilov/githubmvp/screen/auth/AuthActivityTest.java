@@ -1,5 +1,7 @@
 package ru.arturvasilov.githubmvp.screen.auth;
 
+import android.support.test.espresso.Espresso;
+import android.support.test.espresso.IdlingResource;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -12,6 +14,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ru.arturvasilov.githubmvp.test.idling.TimeIdlingResource;
 import ru.gdgkazan.githubmvp.R;
 import ru.gdgkazan.githubmvp.repository.RepositoryProvider;
 import ru.gdgkazan.githubmvp.screen.auth.AuthActivity;
@@ -112,7 +115,10 @@ public class AuthActivityTest {
         closeSoftKeyboard();
         onView(withId(R.id.logInButton)).perform(click());
 
+        IdlingResource idlingResource = TimeIdlingResource.timeout(4000);
         Intents.intended(hasComponent(RepositoriesActivity.class.getName()));
+        Espresso.unregisterIdlingResources(idlingResource);
+
     }
 
     @Test
@@ -125,7 +131,9 @@ public class AuthActivityTest {
         closeSoftKeyboard();
         onView(withId(R.id.logInButton)).perform(click());
 
+        IdlingResource idlingResource = TimeIdlingResource.timeout(4000);
         onView(withId(R.id.loginInputLayout)).check(matches(withInputError(R.string.error)));
+        Espresso.unregisterIdlingResources(idlingResource);
     }
 
     @After

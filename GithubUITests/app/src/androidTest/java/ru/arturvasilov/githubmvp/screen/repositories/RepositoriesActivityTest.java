@@ -1,5 +1,8 @@
 package ru.arturvasilov.githubmvp.screen.repositories;
 
+import android.support.annotation.Nullable;
+import android.support.test.espresso.Espresso;
+import android.support.test.espresso.IdlingResource;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -11,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import io.realm.Realm;
+import ru.arturvasilov.githubmvp.test.idling.TimeIdlingResource;
 import ru.gdgkazan.githubmvp.R;
 import ru.gdgkazan.githubmvp.repository.RepositoryProvider;
 import ru.gdgkazan.githubmvp.screen.commits.CommitsActivity;
@@ -35,9 +39,13 @@ public class RepositoriesActivityTest {
     @Rule
     public final ActivityTestRule<RepositoriesActivity> mActivityRule = new ActivityTestRule<>(RepositoriesActivity.class);
 
+    @Nullable
+    private IdlingResource idlingResource;
+
     @Before
     public void setUp() throws Exception {
         Intents.init();
+        idlingResource = TimeIdlingResource.timeout(4000);
     }
 
     @Test
@@ -68,6 +76,9 @@ public class RepositoriesActivityTest {
     @After
     public void tearDown() throws Exception {
         Intents.release();
+        if (idlingResource != null) {
+            Espresso.unregisterIdlingResources(idlingResource);
+        }
         RepositoryProvider.provideKeyValueStorage().clear();
         Realm.getDefaultInstance().executeTransaction(realm -> realm.deleteAll());
     }
